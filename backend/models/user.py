@@ -2,9 +2,10 @@
 """This module defines a class User"""
 from models.baseModel import BaseModel, Base
 from sqlalchemy import Column, String
+from flask_login import UserMixin
 
 
-class User(BaseModel, Base):
+class User(BaseModel, Base, UserMixin):
     """
     This class defines a user by various attributes"""
     __tablename__ = 'users'
