@@ -5,10 +5,11 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 import models
 from models.baseModel import BaseModel, Base
 from models.user import User
+import os
 
-username = 'username'
-password = 'password'
-host = 'localhost'
+username = os.environ['DB_USERNAME']
+password = os.environ['DB_PASSWORD']
+host = os.environ['DB_HOST']
 classes = {"User": User }
 
 class DBStorage:
