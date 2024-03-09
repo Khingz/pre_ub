@@ -20,3 +20,19 @@ virtualenv <venv>
 
 # On the root director start app by running
 python run.py
+
+
+## Setting up alembic
+
+- install alembic
+    pip install
+- initialize alembic migrations
+    alembic init migrations
+- Congigure alembic.ini file
+    update db url
+- create a version
+    alembic revision --autogenerate -m 'initial model setup'
+- commit version to db
+    alembic upgrade heads
+
+
