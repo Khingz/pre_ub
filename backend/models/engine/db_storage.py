@@ -7,9 +7,6 @@ from models.baseModel import BaseModel, Base
 from models.user import User
 import os
 
-username = os.environ['DB_USERNAME']
-password = os.environ['DB_PASSWORD']
-host = os.environ['DB_HOST']
 classes = {"User": User }
 
 class DBStorage:
@@ -20,7 +17,11 @@ class DBStorage:
     def __init__(self):
         """Instantiate a DBStorage object"""
         self.__engine = create_engine('postgresql://{}:{}@{}/upbeat'.
-                                      format(username, password, host))
+                                      format(
+                                          os.environ['DB_USERNAME'],
+                                          os.environ['DB_PASSWORD'],
+                                          os.environ['DB_HOST']
+                                      ))
    
     def all(self, cls=None):
         """returns a dictionary

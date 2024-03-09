@@ -3,7 +3,6 @@
 from flask import Flask, jsonify
 from .view.user import user
 from models.user import User
-from models import storage
 from flask_login import LoginManager
 import os
 from flask_bcrypt import Bcrypt
@@ -35,6 +34,7 @@ def page_unauthorized(error):
 # Creates a user loader for flask-login callback that returns the user object given an id
 @login_manager.user_loader
 def loader_user(user_id):
+    from models import storage
     return storage.get(User, user_id)
 
 
