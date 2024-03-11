@@ -12,6 +12,7 @@ export DB_USERNAME
 export DB_PASSWORD
 export DB_HOST
 export FLASK_SECRET_KEY
+export SPOTIFY_CLIENT_ID
 
 # Create a virtualenv to containerize the app
 virtualenv <venv>
