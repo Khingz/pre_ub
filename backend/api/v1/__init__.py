@@ -2,6 +2,7 @@
 """Main app file where Flask app is defined and configure"""
 from flask import Flask, jsonify
 from .view.user import user
+from .view.spotifyAPI import spotify
 from models.user import User
 from flask_login import LoginManager
 import os
@@ -39,3 +40,4 @@ def loader_user(user_id):
 
 
 app.register_blueprint(user, url_prefix='/api/v1/user')
+app.register_blueprint(spotify, url_prefix='/api/v1/')
